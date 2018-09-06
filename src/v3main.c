@@ -37,9 +37,9 @@ IX main( IX argc, I1 **argv )
   I1 version[]="3.2";      /* program version */
   I1 inFile[_MAX_PATH]=""; /* input file name */
   I1 outFile[_MAX_PATH]="";/* output file name */
-  I1 fileName[_MAX_PATH];  /* name of file */
-  I1 vdrive[_MAX_DRIVE];   /* drive letter for program View3D.exe */
-  I1 vdir[_MAX_DIR];       /* directory path for program View3D.exe */
+  /* I1 fileName[_MAX_PATH]; */  /* name of file */
+  /* I1 vdrive[_MAX_DRIVE]; */   /* drive letter for program View3D.exe */
+  /* I1 vdir[_MAX_DIR]; */       /* directory path for program View3D.exe */
   I1 title[LINELEN];  /* project title */
   I1 **name;       /* surface names [1:nSrf][0:NAMELEN] */
   I1 *types[]={"rsrf","subs","mask","nuls","obso"};
@@ -100,13 +100,21 @@ IX main( IX argc, I1 **argv )
   fprintf( _ulog, "Program: %s %s\n", program, version );
   fprintf( _ulog, "Executing: %s\n", argv[0] );
 
-  if( argc > 1 )
-    strcpy( inFile, argv[1] );
+  if( argc > 1 ) {
+    if( strlen(argv[0]) >= _MAX_PATH ) {
+      error(3, __FILE__, __LINE__, "Input file path is too long", "");
+    }
+    strncpy( inFile, argv[1], _MAX_PATH );
+  }
   FindFile( "Enter name of V/S data file", inFile, "r" );
   fprintf( _ulog, "Data file:  %s\n", inFile );
 
-  if( argc > 2 )
-    strcpy( outFile, argv[2] );
+  if( argc > 2 ) {
+    if( strlen(argv[0]) >= _MAX_PATH ) {
+      error(3, __FILE__, __LINE__, "Output file path is too long", "");
+    }
+    strncpy( outFile, argv[2], _MAX_PATH );
+   }
   FindFile( "Enter name of VF output file", outFile, "w" );
   fprintf( _ulog, "Output file:  %s\n", outFile );
 
@@ -558,7 +566,7 @@ void ReportAF( const IX nSrf, const IX encl, const I1 *title, const I1 **name,
 
 void FindFile( I1 *msg, I1 *fileName, I1 *type )
 /*  msg;    message to user
- *  name;   file name (string long enough for any file name)
+ *  name;   file name (string _MAX_PATH chars long)
  *  type;   type of file, see fopen() */
   {
   FILE  *pfile=NULL;
@@ -573,8 +581,14 @@ void FindFile( I1 *msg, I1 *fileName, I1 *type )
       }
     if( !pfile )        /* ask for file name */
       {
+      fileName[_MAX_PATH - 1] = '\0';
       fprintf( stderr, "%s: ", msg );
-      scanf( "%s", fileName );
+      scanf( "%260s", fileName ); // _MAX_PATH is 260
+      if( fileName[_MAX_PATH - 1] != '\0' ) {
+        /* file is too long */
+        fprintf(stderr, "Error! File path is too long.\nTry again.\n");
+        fileName[0] = '\0';
+      }
       }
     }
 
