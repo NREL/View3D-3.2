@@ -85,51 +85,51 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\source\Ctrans.c
+SOURCE=..\src\Ctrans.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Getdat.c
+SOURCE=..\src\Getdat.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Heap.c
+SOURCE=..\src\Heap.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Misc.c
+SOURCE=..\src\Misc.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Polygn.c
+SOURCE=..\src\Polygn.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\SaveVF.c
+SOURCE=..\src\SaveVF.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Test3D.c
+SOURCE=..\src\Test3D.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\V3main.c
+SOURCE=..\src\V3main.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\View3D.c
+SOURCE=..\src\View3D.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\ViewObs.c
+SOURCE=..\src\ViewObs.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\ViewPP.c
+SOURCE=..\src\ViewPP.c
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\ViewUnob.c
+SOURCE=..\src\ViewUnob.c
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -137,15 +137,15 @@ SOURCE=.\source\ViewUnob.c
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\source\Prtyp.h
+SOURCE=..\src\Prtyp.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\Types.h
+SOURCE=..\src\Types.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\source\View3D.h
+SOURCE=..\src\View3D.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
