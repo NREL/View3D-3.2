@@ -1,4 +1,58 @@
 /*subfile:  v3main.c  ********************************************************/
+/*                                                                           */
+/*  View3D, Copyright (c) 2018 Alliance for Sustainable Energy, LLC          */
+/*  All rights reserved.                                                     */
+/*                                                                           */
+/*  Redistribution and use in source and binary forms, with or without       */
+/*  modification, are permitted provided that the following conditions are   */
+/*  met:                                                                     */
+/*                                                                           */
+/*  1. Redistributions of source code must retain the above copyright        */
+/*     notice, this list of conditions and the following disclaimer.         */
+/*                                                                           */
+/*  2. Redistributions in binary form must reproduce the above copyright     */
+/*     notice, this list of conditions and the following disclaimer in the   */
+/*     documentation and/or other materials provided with the distribution.  */
+/*                                                                           */
+/*  3. The name of the copyright holder(s), any contributors, the United     */
+/*     States Government, the United States Department of Energy, or any of  */
+/*     their employees may not be used to endorse or promote products        */
+/*     derived from this software without specific prior written permission  */
+/*     from the respective party.                                            */
+/*                                                                           */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY             */
+/*  CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING,   */
+/*  BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND        */
+/*  FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE   */
+/*  COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR  */
+/*  THE UNITED STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE   */
+/*  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR      */
+/*  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF     */
+/*  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR          */
+/*  BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,    */
+/*  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR  */
+/*  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF   */
+/*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                               */
+/*                                                                           */
+/*  This file has been modified from the original public domain version.     */
+/*                                                                           */
+/*  Original NIST Disclaimer:                                                */
+/*                                                                           */
+/*  This software was developed at the National Institute of Standards       */
+/*  and Technology by employees of the Federal Government in the             */
+/*  course of their official duties. Pursuant to title 17 Section 105        */
+/*  of the United States Code this software is not subject to                */
+/*  copyright protection and is in the public domain. These programs         */
+/*  are experimental systems. NIST assumes no responsibility                 */
+/*  whatsoever for their use by other parties, and makes no                  */
+/*  guarantees, expressed or implied, about its quality, reliability,        */
+/*  or any other characteristic.  We would appreciate acknowledgment         */
+/*  if the software is used. This software can be redistributed and/or       */
+/*  modified freely provided that any derivative works bear some             */
+/*  notice that they are derived from it, and any modified versions          */
+/*  bear some notice that they have been modified.                           */
+/*                                                                           */
+/*****************************************************************************/
 
 /*  Main program for batch processing of 3-D view factors.  */
 
@@ -101,7 +155,7 @@ IX main( IX argc, I1 **argv )
   fprintf( _ulog, "Executing: %s\n", argv[0] );
 
   if( argc > 1 ) {
-    if( strlen(argv[0]) >= _MAX_PATH ) {
+    if( strlen(argv[1]) >= _MAX_PATH ) {
       error(3, __FILE__, __LINE__, "Input file path is too long", "");
     }
     strncpy( inFile, argv[1], _MAX_PATH );
@@ -110,7 +164,7 @@ IX main( IX argc, I1 **argv )
   fprintf( _ulog, "Data file:  %s\n", inFile );
 
   if( argc > 2 ) {
-    if( strlen(argv[0]) >= _MAX_PATH ) {
+    if( strlen(argv[2]) >= _MAX_PATH ) {
       error(3, __FILE__, __LINE__, "Output file path is too long", "");
     }
     strncpy( outFile, argv[2], _MAX_PATH );
@@ -123,19 +177,19 @@ IX main( IX argc, I1 **argv )
   fprintf( _ulog, "Time:  %s", asctime(curtime) );
   fputs("\n\
   View3D - calculation of view factors between simple polygons.\n\
-     Provided for review only.\n\
-  This program is furnished by the government and is accepted by\n\
-  any recipient with the express understanding that the United\n\
-  States Government makes no warranty, expressed or implied,\n\
-  concerning the accuracy, completeness, reliability, usability,\n\
-  or suitability for any particular purpose of the information\n\
-  and data contained in this program or furnished in connection\n\
-  therewith, and the United States shall be under no liability\n\
-  whatsoever to any person by reason of any use made thereof.\n\
-  This program belongs to the government.  Therefore, the\n\
-  recipient further agrees not to assert any proprietary rights\n\
-  therein or to represent this program to anyone as other than\n\
-  a government program.\n", stderr );
+    This software was developed at the National Institute of Standards\n\
+    and Technology by employees of the Federal Government in the\n\
+    course of their official duties. Pursuant to title 17 Section 105\n\
+    of the United States Code this software is not subject to\n\
+    copyright protection and is in the public domain. These programs\n\
+    are experimental systems. NIST assumes no responsibility\n\
+    whatsoever for their use by other parties, and makes no\n\
+    guarantees, expressed or implied, about its quality, reliability,\n\
+    or any other characteristic.  We would appreciate acknowledgment\n\
+    if the software is used. This software can be redistributed and/or\n\
+    modified freely provided that any derivative works bear some\n\
+    notice that they are derived from it, and any modified versions\n\
+    bear some notice that they have been modified.\n", stderr );
 
   time0 = CPUTime( 0.0 );  /* start-of-run time */
 
