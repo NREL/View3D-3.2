@@ -76,13 +76,15 @@ IX main( IX argc, I1 **argv )
       exit( 1 );
     }
                 /* open log file */
-#ifdef ANSI
+/* #ifdef ANSI */
   _ulog = fopen( "VIEW3D.LOG", "w" );
+  /*
 #else
   pathsplit( argv[0], vdrive, vdir, _string, _string );
   pathmerge( fileName, vdrive, vdir, "VIEW3D", ".LOG" );
   _ulog = fopen( fileName, "w" );
 #endif
+  */
   if( !_ulog )
     error( 3, __FILE__, __LINE__, "Failed to open VIEW3D.LOG", "" );
 
