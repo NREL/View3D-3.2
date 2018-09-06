@@ -85,51 +85,51 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=..\src\Ctrans.c
+SOURCE=..\src\ctrans.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Getdat.c
+SOURCE=..\src\getdat.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Heap.c
+SOURCE=..\src\heap.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Misc.c
+SOURCE=..\src\misc.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Polygn.c
+SOURCE=..\src\polygn.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\SaveVF.c
+SOURCE=..\src\savevf.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Test3D.c
+SOURCE=..\src\test3d.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\V3main.c
+SOURCE=..\src\v3main.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\View3D.c
+SOURCE=..\src\view3d.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\ViewObs.c
+SOURCE=..\src\viewobs.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\ViewPP.c
+SOURCE=..\src\viewpp.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\ViewUnob.c
+SOURCE=..\src\viewunob.c
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -137,15 +137,15 @@ SOURCE=..\src\ViewUnob.c
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=..\src\Prtyp.h
+SOURCE=..\src\prtyp.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Types.h
+SOURCE=..\src\types.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\View3D.h
+SOURCE=..\src\view3d.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
